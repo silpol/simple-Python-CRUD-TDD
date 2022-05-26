@@ -1,0 +1,16 @@
+version: 2
+updates:
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      # Check for updates to requirements.txt monthly
+      interval: "monthly"
+    # Raise pull requests for version updates
+    # to pip against the `develop` branch
+    target-branch: "develop"
+    # Labels on pull requests for version updates only
+    labels:
+      - "pip dependencies"
+    # Updates on version for pip
+    versioning-strategy: auto
