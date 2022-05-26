@@ -13,6 +13,7 @@ class TestAPI():
         yield
         server.kill(9)
 
-    def test_index(self):
+    def test_API_OK(self):
         r = requests.get("http://127.0.0.1:5000/")
         assert r.status_code == 200
+        assert r.json() == {"API":"OK"}
