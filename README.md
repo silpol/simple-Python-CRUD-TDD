@@ -60,4 +60,18 @@ also you can check separate tables with commands:
 
 exit is with command **exit** or **\q** or pressing Ctrl+D
 
-CLEAN UP afterwards, there is no **clean** routine yet
+## Running testbed
+* testing is done with **Pytest**
+* to make containers persist beyond a single test is to supply the --use-running-containers flag to pytest like so:
+
+
+    pytest --use-running-containers
+## To Finish (ake tech debt)
+* finalize cascade deletion - issue #1
+* write rest of automated tests - issue #2
+
+## Future options
+* separate views and models into separate modules
+* add cleanup routine to docker-compose
+
+# CLEAN UP afterwards, there is no **clean** routine yet
