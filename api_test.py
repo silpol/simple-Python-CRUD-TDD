@@ -31,16 +31,16 @@ def test_api_ok():
 '''
 test plans
 1) standard check of CRUD functioning
-2) per each type of object
+2) per each type of object / access point 
 -- double insert to check 500 on constraints
 -- double delete to check 500 on constraints
--- update with empty string in name to check constraints
--- inserts and updates with too long name field
+-- update with empty string in "name" key of JSON to check constraints
+-- inserts and updates with too long "name" field
 -- duplicate "correct" key name in JSON parameters,
 --- one case with original "new" names (not present in db before)
 --- one case with one already present and another not present
 -- same plus in combination with incorrect ones (few cases possible)
 3) relationships
--- Continent delete should have delete propagation to countries and then to cities, no dormant "leaves" left
--- Country should have delete propagation to cities, no dormant "leaves" left
+-- _Continent_ delete should have delete cascaded to _countries_ and then to _cities_, no dormant "leaves" left
+-- _Country_ should have delete propagation to _cities_, update up to _continents_, no dormant "leaves" left
 '''
