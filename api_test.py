@@ -17,3 +17,14 @@ class TestAPI():
         r = requests.get("http://localhost:80/api")
         assert r.status_code == 200
         assert r.json() == {"API":"OK"}
+
+'''
+test plans
+
+1) per each type of object
+-- double insert to check 500 on constraints
+-- double delete to check 500 on constraints
+-- update with empty string in name to check constraints
+-- inserts and updates with too long name
+
+-- Continent and Country should have delete propagation
