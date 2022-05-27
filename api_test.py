@@ -27,4 +27,6 @@ test plans
 -- update with empty string in name to check constraints
 -- inserts and updates with too long name
 
--- Continent and Country should have delete propagation
+-- Continent should have delete propagation
+-- Country should have delete propagation
+'''
