@@ -1,6 +1,6 @@
 # simple-Python-CRUD-TDD
 
-##Simple CRUD in Python with TDD focus
+## Simple CRUD in Python with TDD focus
 ### Notes
 1) implementation has been done with Python3, Flask, SqlAlchemy, Postgres and PyTest
 2) mypy is used for linting on the spot
@@ -21,10 +21,9 @@
 * launch DB container as detached and check it runs, it should look like
 
 
-    silpol@host:~/path/simple-Python-CRUD-TDD$ docker ps
     CONTAINER ID   IMAGE         COMMAND                  CREATED       STATUS       PORTS                                       NAMES
+    
     d3e53409e4fb   postgres:12   "docker-entrypoint.s…"   9 hours ago   Up 9 hours   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp   db
-    silpol@host:~/path/simple-Python-CRUD-TDD$ 
 ---
     docker compose up --build pythonapp
 * launch application build and run it. Option --build is not critical for first run, but gets useful once you start and stop it, e.g. for debugging.
@@ -32,11 +31,12 @@
 * it will look like this:
 
 
-    silpol@host:~/path$ docker ps -a
+
     CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+    
     a62b7bea453b   pythonapp     "flask run --host=0.…"   5 seconds ago   Up 5 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp           pythonapp
+    
     d3e53409e4fb   postgres:12   "docker-entrypoint.s…"   9 hours ago     Up 9 hours     0.0.0.0:5432->5432/tcp, :::5432->5432/tcp   db 
-    silpol@host:~/path$ 
 
 ---
 * repetitive run produces a lot of dangling images. Clean up is, type 
@@ -61,14 +61,14 @@ also you can check separate tables with commands:
 exit is with command **exit** or **\q** or pressing Ctrl+D
 
 ## Running testbed
-* testing is done with **Pytest**
+* testing is done with **Pytest** with [pytest-docker-compose](https://github.com/pytest-docker-compose/pytest-docker-compose/blob/develop/README.rst) plugin
 * to make containers persist beyond a single test is to supply the --use-running-containers flag to pytest like so:
 
 
     pytest --use-running-containers
-## To Finish (ake tech debt)
-* finalize cascade deletion - issue #1
-* write rest of automated tests - issue #2
+## To Finish (aka tech debt)
+* finalize cascade deletion - [issue](https://github.com/silpol/simple-Python-CRUD-TDD/issues/1) #1
+* write rest of automated tests - [issue](https://github.com/silpol/simple-Python-CRUD-TDD/issues/2) #2
 
 ## Future options
 * separate views and models into separate modules
