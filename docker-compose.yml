@@ -9,8 +9,8 @@ services:
       - "80:80"
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
-#      - TRAP_BAD_REQUEST_ERRORS=ON
-#      - FLASK_DEBUG=ON
+      - TRAP_BAD_REQUEST_ERRORS=ON
+      - FLASK_DEBUG=ON
     depends_on:
       - db
 
