@@ -26,8 +26,8 @@ class Country(db.Model):
     __tablename__ = "countries"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
-    continent_id = db.Column(db.Integer, db.ForeignKey('continents.id'), nullable=False)
-    cities = db.relationship('City', backref='cities', lazy=True)
+    continent_id = db.Column(db.Integer, db.ForeignKey('continents.id'), nullable=False, cascade="save-update")
+    cities = db.relationship('City', backref='cities', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, name, continent_id):
         self.name = name
