@@ -1,23 +1,31 @@
 import requests
-import pytest, pexpect
+import pytest
+from urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
+
+pytest_plugins = ["docker_compose"]
 
 
-class TestAPI:
-    @pytest.fixture(autouse=True)
-    def setup(self):
-        self.url = 'http://localhost:80'
+@pytest.fixture(scope="function")
+def wait_for_api(function_scoped_container_getter):
+    """Wait for the api from my_api_service to become responsive"""
+    request_session = requests.Session()
+    retries = Retry(total=5,
+                    backoff_factor=0.1,
+                    status_forcelist=[500, 502, 503, 504])
+    request_session.mount('http://', HTTPAdapter(max_retries=retries))
 
-    @pytest.fixture(autouse=True)
-    def start_server(self):
-        server = pexpect.spawn("docker compose up --build pythonapp")
-        server.expect('Running on http://127.0.0.1:80')
-        yield
-        server.kill(9)
+    service = function_scoped_container_getter.get("my_api_service").network_info[0]
+    api_url = "http://%s:%s/" % (service.hostname, service.host_port)
+    assert request_session.get(api_url)
+    print(api_url)
+    return request_session, api_url
 
-    def test_api_ok(self):
-        r = requests.get("http://localhost:80/api")
-        assert r.status_code == 200
-        assert r.json() == {"API": "OK"}
+
+def test_api_ok():
+    r = requests.get("http://localhost:80/api")
+    assert r.status_code == 200
+    assert r.json() == {"API": "OK"}
 
 
 '''
