@@ -50,7 +50,7 @@ sqlalchemy2-stubs==0.0.2a22
 texttable==1.6.4
 tomli==2.0.1
 types-requests==2.27.28
-types-urllib3==1.26.14
+types-urllib3==1.26.15
 typing_extensions==4.2.0
 urllib3==1.26.9
 websocket-client==0.59.0
