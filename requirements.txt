@@ -45,7 +45,7 @@ python-dotenv==0.20.0
 PyYAML==5.4.1
 requests==2.27.1
 six==1.16.0
-SQLAlchemy==1.4.36
+SQLAlchemy==1.4.37
 sqlalchemy2-stubs==0.0.2a22
 texttable==1.6.4
 tomli==2.0.1
