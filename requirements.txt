@@ -53,6 +53,6 @@ types-requests==2.27.30
 types-urllib3==1.26.15
 typing_extensions==4.2.0
 urllib3==1.26.9
-websocket-client==0.59.0
+websocket-client==1.4.1
 Werkzeug==2.1.2
 zipp==3.8.0
