@@ -54,5 +54,5 @@ types-urllib3==1.26.15
 typing_extensions==4.2.0
 urllib3==1.26.9
 websocket-client==0.59.0
-Werkzeug==2.2.3
+Werkzeug==3.0.1
 zipp==3.8.0
