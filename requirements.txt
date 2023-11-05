@@ -11,7 +11,7 @@ docker-compose==1.29.2
 dockerpty==0.4.1
 docopt==0.6.2
 execnet==1.9.0
-Flask==2.1.2
+Flask==2.2.5
 Flask-SQLAlchemy==2.5.1
 flask-sqlalchemy-stubs==0.2
 greenlet==1.1.2
