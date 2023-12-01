@@ -47,7 +47,7 @@ PyYAML==5.4.1
 requests==2.31.0
 six==1.16.0
 SQLAlchemy==1.4.37
-sqlalchemy2-stubs==0.0.2a24
+sqlalchemy2-stubs==0.0.2a37
 texttable==1.6.4
 tomli==2.0.1
 types-requests==2.28.11.15
